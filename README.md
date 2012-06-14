@@ -1,5 +1,5 @@
-#sub.socket.io
+#[sub.socket.io](http://chat.braitsch.io/)
 
-####Example of how to run Socket.IO on multiple subdomains in the form of a simple chat server.
+####An example of how to share Socket.IO over multiple subdomains in the form of a simple chat server.
 
-More coming soon.
+Details coming soon.
