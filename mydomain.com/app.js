@@ -22,7 +22,6 @@ global.multiSocketMode = false;
 app.root = __dirname;
 require('./app/config')(app, exp);
 require('./app/server/router')(app);
-require('./app/server/modules/socket-root');
 
 app.listen(8080, function(){
   	console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
