@@ -18,7 +18,7 @@ sub1.mydomain.com
 sub2.mydomain.com
 ```
 
-Note these applications can obviously be anything you like but for the purposes of this example they are just three instances of the exact same chat application just running in three separate namespaces.
+Note these applications can obviously be anything you like but for the purposes of this example they are just three instances of the exact same chat application running in three separate namespaces.
 
 So to get these up and running, cd into each application and install its dependencies :
 
@@ -36,11 +36,12 @@ Now open your `etc/hosts` file in your editor of choice and add the following tw
 
 Somewhere after '127.0.0.1 localhost' and before '255.255.255.255 broadcasthost' add the following two lines :
 
+```
 127.0.0.1 sub1.localhost
 127.0.0.1 sub2.localhost
+```
 
 Save and exit the file.
-
 Ensure you are inside of the `mydomain.com` directory and start the root application.
 
 ```
@@ -49,9 +50,11 @@ node app
 
 Now point your browser at :
 
+```
 http://localhost:8080
 http://sub1.localhost:8080
 http://sub1.localhost:8080
+```
 
 And you should have three isolated instances of the chat server running, all sharing the same Socket.IO instance.
 
