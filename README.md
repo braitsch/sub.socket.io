@@ -5,8 +5,8 @@
 ## Installation
 
 ```
-git clone git://github.com/braitsch/sub.socket.io.git chat
-cd chat
+git clone git://github.com/braitsch/sub.socket.io.git socket-io-example
+cd socket-io-example
 ls -al
 ```
 
@@ -34,7 +34,7 @@ cd ../mydomain.com
 
 Now open your `etc/hosts` file in your editor of choice and add the following two subdomains so we can view them in a browser. 
 
-Somewhere after *127.0.0.1 localhost* and before **255.255.255.255 broadcasthost** add the following two lines :
+Somewhere after **127.0.0.1 localhost** and before **255.255.255.255 broadcasthost** add the following two lines :
 
 ```
 127.0.0.1 sub1.localhost
@@ -42,7 +42,7 @@ Somewhere after *127.0.0.1 localhost* and before **255.255.255.255 broadcasthost
 ```
 
 Save and exit the file.
-Ensure you are inside of the *mydomain.com* directory and start the root application.
+Ensure you are inside of the **mydomain.com** directory and start the root application.
 
 ```
 node app
@@ -51,9 +51,9 @@ node app
 Now point your browser at :
 
 ```
-[http://localhost:8080](http://localhost:8080)
-[http://sub1.localhost:8080](http://sub1.localhost:8080)
-[http://sub1.localhost:8080](http://sub1.localhost:8080)
+http://localhost:8080
+http://sub1.localhost:8080
+http://sub1.localhost:8080
 ```
 
 And you should have three isolated instances of the chat server running, all sharing the same Socket.IO instance.
