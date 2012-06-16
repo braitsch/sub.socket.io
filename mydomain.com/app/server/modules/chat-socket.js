@@ -15,7 +15,6 @@ module.exports = function()
 		});
 
 		socket.on('user-message', function(data) {
-			socket.uName = data.name;
 			data.color = socket.color;
 			brodcastMessage('user-message', data);
 		});
@@ -27,7 +26,7 @@ module.exports = function()
 		
 		function brodcastMessage(message, data)
 		{
-	//	remove socket.emit if you don't want the sender to receive their own message //
+	// remove socket.emit if you don't want the sender to receive their own message //
 			socket.emit(message, data);
 			socket.broadcast.emit(message, data);
 		}
