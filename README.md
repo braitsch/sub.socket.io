@@ -58,4 +58,4 @@ http://sub1.localhost:8080
 
 And you should have three isolated instances of the chat server running, all sharing the same Socket.IO instance.
 
-**More details coming soon.**
+[More info about how the actual chat application works on my blog](http://www.quietless.com/kitchen/building-a-node-js-chat-application-and-sharing-socket-io-across-multiple-subdomains/)
