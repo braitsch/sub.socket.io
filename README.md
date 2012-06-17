@@ -32,7 +32,7 @@ npm install -d
 cd ../mydomain.com
 ```
 
-Now open your `etc/hosts` file in your editor of choice and add the following two subdomains so we can view them in a browser. 
+Now open your `/etc/hosts` file in your editor of choice and add the following two subdomains so we can view them in a browser. 
 
 Somewhere after **127.0.0.1 localhost** and before **255.255.255.255 broadcasthost** add the following two lines :
 
