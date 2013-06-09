@@ -1,15 +1,14 @@
 
-module.exports = function(app, exp) {
+module.exports = function(app, express) {
 
 	app.configure(function(){
 		app.set('views', app.root + '/app/server/views');
 		app.set('view engine', 'jade');
-		app.set('view options', { doctype: 'html', pretty: true });
-		app.use(exp.bodyParser());
-		app.use(exp.methodOverride());
+		app.locals.pretty = true;
+		app.use(express.bodyParser());
+		app.use(express.methodOverride());
 		app.use(require('stylus').middleware({ src: app.root + '/app/public' }));
-		app.use(exp.static(app.root + '/app/server'));
-		app.use(exp.static(app.root + '/app/public'));
+		app.use(express.static(app.root + '/app/public'));
 	});
 
 }

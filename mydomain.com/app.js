@@ -6,28 +6,36 @@
  */
 
 var path = require('path');
-var exp = require('express');
-var app = exp.createServer();
-
-app.root = __dirname;
-
-global.host = 'localhost';
-global.root = path.resolve('../');
+var http = require('http');
+var express = require('express');
+var app = express();
+var server = http.createServer(app);
 
 // create the single instance of socket.io that will be shared across all applications //
-global.socket = require('socket.io').listen(app);
+global.host = 'localhost';
+global.root = path.resolve('../');
+global.socket = require('socket.io').listen(server);
 global.socket.set('log level', 1);
 global.socket.set('transports', [ 'websocket', 'flashsocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']);
 
-// create subdomain applications //
-app.use(exp.vhost('sub1.' + global.host, require('./subdomains/sub1')));
-app.use(exp.vhost('sub2.' + global.host, require('./subdomains/sub2')));
+// create our root application //
+app.configure(function(){
+	app.set('port', 8080);
+	app.set('views', __dirname + '/app/server/views');
+	app.set('view engine', 'jade');
+	app.locals.pretty = true;
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
+// create the subdomain applications //
+	app.use(express.vhost('sub1.' + global.host, require('./subdomains/sub1')));
+	app.use(express.vhost('sub2.' + global.host, require('./subdomains/sub2')));
+	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
+	app.use(express.static(__dirname + '/app/public'));
+});
 
-// finally create this application, our root server //
-require('./app/config')(app, exp);
 require('./app/server/router')(app);
 require('./app/server/modules/chat-socket');
 
-app.listen(8080, function(){
-  	console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+server.listen(app.get('port'), function(){
+  	console.log("Express server listening on port %d in %s mode", app.get('port'), app.settings.env);
 });

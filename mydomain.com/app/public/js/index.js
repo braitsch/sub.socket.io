@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 	$('#msg').focus();
-// give user a generic name to start //	
+// give user a random numeric name to start //
 	$('#name').val(Math.random().toFixed(8).toString().substr(2));
 	$('#btn-send').click(function(){ sendMessage(); })
 	$('#msg').keypress(function(e){ if (e.keyCode === 13) { sendMessage(); return false; } })
