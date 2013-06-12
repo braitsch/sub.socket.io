@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$('#msg').keypress(function(e){ if (e.keyCode === 13) { sendMessage(); return false; } })
 
 // initialize the socket connection to listen on the 'chat' namespace //
-	socket = io.connect('/chat-sub1');
+	socket = io.connect('/chat-sub2');
 	socket.on('status', function (connections) {
 		var i=0; for (p in connections) i++;
 		var s = i > 1 ? ' are '+i+' People ' : ' is '+i+' Person ';
