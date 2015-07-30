@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$('#msg').keypress(function(e){ if (e.keyCode === 13) { sendMessage(); return false; } })
 
 // initialize the socket connection to listen on the 'chat' namespace //
-	socket = io.connect('/chat');
+	var socket = io();
 	socket.on('status', function (connections) {
 		var i=0; for (p in connections) i++;
 		var s = i > 1 ? ' are '+i+' People ' : ' is '+i+' Person ';
@@ -30,7 +30,7 @@ $(document).ready(function() {
 // register the user's name with the socket connection on the server // 
 	socket.emit('user-ready', {name : $('#name').val() });
 	
-	var autoScroll = function() { 
+	var autoScroll = function() {
 		document.getElementById('incoming').scrollTop = document.getElementById('incoming').scrollHeight; 
 	}
 	var sendMessage = function() {
