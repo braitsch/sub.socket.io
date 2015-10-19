@@ -1,6 +1,6 @@
 {
 	"name": "sub.socket.io",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "An example of how to run Socket.IO over multiple subdomains",
 	"author": {
 		"name": "Stephen Braitsch",
@@ -11,9 +11,8 @@
 		"url": "git://github.com/braitsch/sub.socket.io.git"
 	},
 	"dependencies": {
-		"express": "4.13.1",
-		"stylus": "0.50.0",
-		"jade": "1.9.2",
-		"body-parser": "1.13.0"
+		"express": "4.13.3",
+		"jade": "1.11.0",
+		"stylus": "0.52.4"
 	}
 }

@@ -7,8 +7,9 @@ $(document).ready(function() {
 	$('#btn-send').click(function(){ sendMessage(); })
 	$('#msg').keypress(function(e){ if (e.keyCode === 13) { sendMessage(); return false; } })
 
-// initialize the socket connection to listen on the 'chat' namespace //
-	var socket = io();
+// initialize the socket connection to listen on the 'node-chat' namespace //
+// we have to include the port as per: https://github.com/socketio/socket.io-client/issues/812
+	var socket = io.connect(':3000/node-chat');
 	socket.on('status', function (connections) {
 		var i=0; for (p in connections) i++;
 		var s = i > 1 ? ' are '+i+' People ' : ' is '+i+' Person ';

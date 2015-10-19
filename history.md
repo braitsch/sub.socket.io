@@ -1,3 +1,6 @@
+####1.2.1 / 2015-10-18
+    * updating to express v4.13.3 & socket.io v1.3.7
+
 ####1.2.0 / 2015-07-29
     * updating to express v4.13.1 & socket.io v1.3.6
 

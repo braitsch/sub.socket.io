@@ -1,11 +1,11 @@
 
-
 module.exports = function()
 {
 	var colors = ['#AE331F', '#D68434', '#116A9F', '#360B95', '#5F209E'];
 	var connections = { };
 
-	io.on('connection', function(socket) {
+	var nsp = io.of('/node-chat');
+	nsp.on('connection', function(socket) {
 	// give each connected user a random color so it's easier to tell them apart in the chat log //
 		socket.on('user-ready', function(data) {
 			socket.name = data.name;
@@ -25,7 +25,7 @@ module.exports = function()
 		
 		function broadcastMessage(message, data)
 		{
-			io.emit(message, data);
+			nsp.emit(message, data);
 		}
 		
 	// handle connections & disconnections //

@@ -24,11 +24,11 @@ So to get these up and running, cd into each application and install its depende
 
 ```
 cd mydomain.com
-npm install -d
+npm install
 cd ../sub1.mydomain.com
-npm install -d
+npm install
 cd ../sub2.mydomain.com
-npm install -d
+npm install
 cd ../mydomain.com
 ```
 
@@ -51,11 +51,13 @@ node app
 Now point your browser at :
 
 ```
-http://localhost:8080
-http://sub1.localhost:8080
-http://sub1.localhost:8080
+http://localhost:3000
+http://sub1.localhost:3000
+http://sub1.localhost:3000
 ```
 
 And you should have three isolated instances of the chat server running, all sharing the same Socket.IO instance.
 
-[More info about how the actual chat application works on my blog](http://www.quietless.com/kitchen/building-a-node-js-chat-application-and-sharing-socket-io-across-multiple-subdomains/)
+[More info about how the actual chat application works on my blog](http://kitchen.braitsch.io/building-a-node-js-chat-application-and-sharing-socket-io-across-multiple-subdomains/)
+
+

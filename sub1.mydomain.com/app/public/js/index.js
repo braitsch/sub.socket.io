@@ -7,9 +7,9 @@ $(document).ready(function() {
 	$('#btn-send').click(function(){ sendMessage(); })
 	$('#msg').keypress(function(e){ if (e.keyCode === 13) { sendMessage(); return false; } })
 
-// initialize the socket connection to listen on the 'chat' namespace //
-	//socket = io.connect('/chat-sub1');
-	var socket = io();
+// initialize the socket connection to listen on the 'chat-sub1' namespace //
+// we have to include the port as per: https://github.com/socketio/socket.io-client/issues/812
+	var socket = io(':3000/chat-sub1');
 	socket.on('status', function (connections) {
 		var i=0; for (p in connections) i++;
 		var s = i > 1 ? ' are '+i+' People ' : ' is '+i+' Person ';
@@ -31,7 +31,7 @@ $(document).ready(function() {
 // register the user's name with the socket connection on the server // 
 	socket.emit('user-ready', {name : $('#name').val() });
 	
-	var autoScroll = function() { 
+	var autoScroll = function() {
 		document.getElementById('incoming').scrollTop = document.getElementById('incoming').scrollHeight; 
 	}
 	var sendMessage = function() {
