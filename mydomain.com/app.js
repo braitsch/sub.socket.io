@@ -13,7 +13,7 @@ var vhost = require('vhost');
 
 // create the single instance of socket.io that will be shared across all applications //
 global.io = require('socket.io')(http);
-global.root = path.resolve('../');
+global.root_directory = path.resolve('../');
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/app/server/views');
