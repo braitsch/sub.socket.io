@@ -8,11 +8,11 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var http = require('http').Server(app);
 var vhost = require('vhost');
+var server  = require('http').createServer(app);
 
 // create the single instance of socket.io that will be shared across all applications //
-global.io = require('socket.io')(http);
+global.io = require('socket.io').listen(server);
 global.root_directory = path.resolve('../');
 
 app.set('port', process.env.PORT || 3000);
@@ -25,7 +25,6 @@ app.use(express.static(__dirname + '/app/public'));
 
 require('./app/server/routes')(app);
 
-http.listen(app.get('port'), function()
-{
-	console.log('Express server listening on port', app.get('port'));
+server.listen(app.get('port'), function(){
+	console.log('Express app listening at http://%s:%s', server.address().address, server.address().port);
 });

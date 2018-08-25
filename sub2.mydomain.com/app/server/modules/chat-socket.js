@@ -1,5 +1,4 @@
 
-
 module.exports = function()
 {
 	var colors = ['#AE331F', '#D68434', '#116A9F', '#360B95', '#5F209E'];
