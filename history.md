@@ -1,3 +1,6 @@
+####1.3.0 / 2015-10-18
+    * updating all dependencies to latest version. migrating from jade to pug templating engine
+
 ####1.2.1 / 2015-10-18
     * updating to express v4.13.3 & socket.io v1.3.7
 

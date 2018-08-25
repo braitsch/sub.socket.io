@@ -1,6 +1,6 @@
-#[sub.socket.io](http://chat.braitsch.io/)
+# [sub.socket.io](http://chat.braitsch.io/)
 
-####An example of how to share a single Socket.IO instance over multiple subdomains in the form of running three independent chat servers.
+#### An example of how to share a single Socket.IO instance over multiple subdomains in the form of running three independent chat servers.
 
 ## Installation
 
@@ -57,7 +57,4 @@ http://sub1.localhost:3000
 ```
 
 And you should have three isolated instances of the chat server running, all sharing the same Socket.IO instance.
-
-[More info about how the actual chat application works on my blog](http://kitchen.braitsch.io/building-a-node-js-chat-application-and-sharing-socket-io-across-multiple-subdomains/)
-
 

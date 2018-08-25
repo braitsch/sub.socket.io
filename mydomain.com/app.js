@@ -17,7 +17,7 @@ global.root_directory = path.resolve('../');
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/app/server/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.use(vhost('sub1.*', require('./subdomains/sub1')));
 app.use(vhost('sub2.*', require('./subdomains/sub2')));
 app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
