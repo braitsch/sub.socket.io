@@ -7,7 +7,7 @@ const app = express();
 
 express.log('./logs');
 
-// express.https(app);
+express.https(app);
 
 global.io = require('socket.io')(server);
 global.root_directory = path.resolve('../');

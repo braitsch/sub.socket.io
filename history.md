@@ -1,3 +1,6 @@
+#### 1.4.0 / 2021-04-11
+    * updating all dependencies to latest version.
+
 #### 1.3.0 / 2015-10-18
     * updating all dependencies to latest version. migrating from jade to pug templating engine
 

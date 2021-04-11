@@ -11,6 +11,7 @@
 		"url": "git@github.com:braitsch/sub.socket.io.git"
 	},
 	"dependencies": {
+		"@braitsch/express": "^1.0.0",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"pug": "^3.0.2",
