@@ -7,10 +7,9 @@
 ```
 git clone git://github.com/braitsch/sub.socket.io.git socket-io-example
 cd socket-io-example
-ls -al
 ```
 
-This project contains three separate applications, a root application (mydomain.com) that instantiates the Socket.IO instance and two subdomain applications that listen for incoming connections in their own namespace. 
+This project contains three separate applications, a root application (mydomain.com) that instantiates the Socket.IO instance and two subdomain applications that listen for incoming connections in their own namespace.
 
 ```
 mydomain.com
@@ -32,7 +31,7 @@ npm install
 cd ../mydomain.com
 ```
 
-Now open your `/etc/hosts` file in your editor of choice and add the following two subdomains so we can view them in a browser. 
+Now open your `/etc/hosts` file in your editor of choice and add the following two subdomains so we can view them in a browser.
 
 Somewhere after **127.0.0.1 localhost** and before **255.255.255.255 broadcasthost** add the following two lines :
 
@@ -51,9 +50,9 @@ node app
 Now point your browser at :
 
 ```
-http://localhost:3000
-http://sub1.localhost:3000
-http://sub1.localhost:3000
+http://localhost:8080
+http://sub1.localhost:8080
+http://sub1.localhost:8080
 ```
 
 And you should have three isolated instances of the chat server running, all sharing the same Socket.IO instance.
