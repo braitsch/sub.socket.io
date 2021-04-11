@@ -7,13 +7,12 @@ const app = express();
 
 express.log('./logs');
 
-express.https(app);
+const server = express.http(app);
 
 global.io = require('socket.io')(server);
 global.root_directory = path.resolve('../');
 
 const vhost = require('vhost');
-const host = process.env.HOST || 'localhost';
 app.use(vhost('sub1.*', require('./subdomains/sub1')));
 app.use(vhost('sub2.*', require('./subdomains/sub2')));
 
