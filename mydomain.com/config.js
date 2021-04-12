@@ -1,9 +1,10 @@
 
-module.exports = function(app) {
+module.exports = function(app, express) {
 
-	require(__dirname + '/app/server/routes')(app);
 	app.set('views', __dirname + '/app/server/views');
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
-	app.use(require('express').static(__dirname + '/app/public'));
+// express.static must come after stylus middleware & before routes //
+	app.use(express.static(__dirname + '/app/public'));
+	require(__dirname + '/app/server/routes')(app);
 
 }
